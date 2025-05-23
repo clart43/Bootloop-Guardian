@@ -1,0 +1,6 @@
+id=Boot_Loop_Guardian
+name=Bootloop Guardian🛡️
+version=v1.0
+versionCode=1.1
+author=Clart43
+description=Bootloop Protector to identify the module that caused a bootloop, in case you installed too many modules at the same time.
