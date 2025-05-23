@@ -85,7 +85,7 @@ disable_all_magisk_modules() {
 
     for MODULE_PATH in /data/adb/modules/*; do
         MODULE_ID=$(basename "$MODULE_PATH")
-        if [ "$MODULE_ID" = "Bootloop_Detector_Guardian" ]; then
+        if [ "$MODULE_ID" = "Boot_Loop_Guardian" ]; then
             continue 
         fi
         if [ ! -f "$MODULE_PATH/disable" ]; then

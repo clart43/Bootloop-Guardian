@@ -9,7 +9,7 @@ echo "$(date) - [post-fs-data.sh] Iniciado." >> "$BOOT_PROGRESS_LOG"
 for MODULE_PATH in /data/adb/modules/*; do
     MODULE_ID=$(basename "$MODULE_PATH")
 
-    if [ "$MODULE_ID" = "Bootloop_Detector_Guardian" ]; then
+    if [ "$MODULE_ID" = "Boot_Loop_Guardian" ]; then
         continue
     fi
 
