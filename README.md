@@ -12,3 +12,4 @@ How it Helps You:
  * Enhanced Stability: A smarter, more resilient Magisk experience.
 Where to See the Information:
 After a bootloop event and successful recovery, simply open your Magisk Manager app. Navigate to the "Modules" section, and look for your installed module, "Bootloop Guardian: Magisk Module Detector". Its description will be updated to show the ID and name of the module that caused the bootloop.
+Inspired in : https://github.com/Magisk-Modules-Alt-Repo/Simple_BootloopSaver
