@@ -1,3 +1,6 @@
+#Bootloop Guardian🛡️
+
+
 🛡️ Bootloop Guardian: Magisk Module Detector 🔍
 This Magisk module acts as your personal system protector, designed to automatically detect and recover your device from annoying bootloops caused by other Magisk modules. Say goodbye to manual flashing in recovery and hours of troubleshooting!
 What It Does:
