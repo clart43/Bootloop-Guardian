@@ -1,19 +1,53 @@
-#Bootloop Guardian🛡️
+Bootloop Guardian 🛡️
 
 
-🛡️ Bootloop Guardian: Magisk Module Detector 🔍
-This Magisk module acts as your personal system protector, designed to automatically detect and recover your device from annoying bootloops caused by other Magisk modules. Say goodbye to manual flashing in recovery and hours of troubleshooting!
-What It Does:
- * ⚡ Proactive Bootloop Detection: This module intelligently monitors your device's boot process. If it detects your system failing to start correctly (e.g., critical system processes like Zygote or SystemUI aren't launching) for a set number of attempts (the "bootloop threshold"), it springs into action.
- * 🚫 Automatic Module Disablement: Once a bootloop is confirmed, "Bootloop Guardian" will automatically disable ALL other Magisk modules that might be causing the issue. This allows your device to boot successfully into a working state.
- * 🚨 Advanced Safe Mode Option: But there's more! If, after disabling all other modules, your device still experiences a bootloop (indicating the issue wasn't directly Magisk-related), our module will force a reboot into Magisk Safe Mode. This gives you a crucial lifeline to troubleshoot the problem without any module interference.
- * 🎯 Culprit Identification: The best part? After recovering from a bootloop, this module will tell you exactly which Magisk module was the likely culprit! It updates its own description in the Magisk Manager app to display the ID and Name of the module that caused the bootloop. No more guessing games!
- * 🧹 Smart Log Management: If your device boots successfully without any issues, the module will clear its internal "last active module" log, keeping things tidy and ensuring that next time, it only reports genuine bootloop causes.
- * ✨ Lightweight Background Monitoring: Even after a successful boot, the module runs in the background with minimal resource consumption, quietly monitoring system logs for critical error "codes" (like fatal app crashes or system service failures) that might indicate instability, logging them for your review.
-How It Helps You:
- * Save Time & Frustration: Quickly identify and fix bootloops without needing to manually disable modules in recovery or perform clean flashes.
- * Effortless Diagnosis: Get clear, actionable information about the problematic module directly in Magisk Manager.
- * Enhanced Stability: A smarter, more resilient Magisk experience, now with an additional layer of recovery via Safe Mode.
-Where to See the Information:
-After a bootloop event and successful recovery, simply open your Magisk Manager app. Navigate to the "Modules" section and look for your installed module, "Bootloop Guardian: Magisk Module Detector." Its description will be updated to show the ID and name of the module that caused the bootloop.
-Inspired by: Simple_BootloopSaver
+A smart Magisk module designed to automatically detect and recover from bootloops caused by other modules.
+
+The Problem
+We've all been there: you install a new Magisk module, reboot with excitement, and... the device never finishes booting. You're stuck in a bootloop. The usual solution involves rebooting into recovery, finding the problematic module's files, and manually deleting them—a tedious and frustrating process.
+
+The Solution: Your Automatic Safety Net
+Bootloop Guardian is your personal system protector. It acts as an automatic safety net that watches over the boot process. If it detects a failure, it intervenes automatically so you can regain control of your device effortlessly.
+
+Key Features
+🔍 Smart Bootloop Detection
+The module actively monitors your device's boot process. If critical system processes (like Zygote or SystemUI) fail to start after a configurable number of attempts, it considers it a bootloop and springs into action.
+
+🚫 Automatic Module Disablement
+Once a bootloop is confirmed, Bootloop Guardian automatically disables ALL other Magisk modules. This neutralizes the cause of the problem and allows your device to boot successfully.
+
+🎯 Accurate Culprit Identification
+No more guessing games! After a successful recovery, the module updates its own description in the Magisk app to show you the name and ID of the module that likely caused the bootloop.
+
+✨ Lightweight Background Monitoring
+Even after a successful boot, the module keeps a silent watch with minimal resource consumption. It logs critical events like fatal exceptions (FATAL EXCEPTION) or system crashes (SystemServer crash) for your review.
+
+How It Works
+For your peace of mind, here’s a transparent breakdown of how it operates:
+
+Logging Phase (post-fs-data): As the boot process begins, the module logs the last enabled Magisk module it finds.
+Verification Phase (service.sh): After a reasonable waiting period (90 seconds by default), the module checks if essential Android processes are running.
+Rescue Action:
+If the boot fails: It assumes a bootloop. It then disables other modules, updates its own description with the likely culprit's name (from the log in step 1), and forces a clean reboot.
+If the boot succeeds: It resets its internal counter and clears the log, getting everything ready for the next boot.
+Installation
+Download the module's .zip file from the Releases section.
+Open the Magisk app.
+Go to the Modules tab.
+Tap on "Install from storage" and select the .zip file.
+Reboot the device.
+Finding the Culprit's Info
+After the module has rescued you from a bootloop:
+
+Open the Magisk app.
+Go to the Modules tab.
+Find Bootloop Guardian in your list of installed modules.
+Read its description: The name of the problematic module will be displayed there.
+Configuration
+You can adjust the reboot threshold for triggering the rescue action. To do so, edit the service.sh file within the module and modify the variable:
+
+Bash
+
+BOOTLOOP_THRESHOLD=2 # Number of failed boots before taking action
+Credits and Inspiration
+This project was inspired by the work and original idea of Simple_BootloopSaver.
